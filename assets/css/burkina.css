@@ -1,0 +1,127 @@
+/* RSM Scouting — habillage aux couleurs du Burkina Faso (rouge #EF2B2D · vert #009E49 · étoile jaune #FCD116) + composants poste/système/besoins/export */
+:root{--bf-red:#EF2B2D;--bf-green:#009E49;--bf-gold:#FCD116;--bf-ink:#0b1410;--red:#EF2B2D;--red-dark:#b81a1c;--gold:#FCD116;--green:#009E49;--ink:#0b1410;--cream:#f6f3ea;--line:#e2ddcf;--ok:#009E49}
+body{background:var(--cream)}
+h1,h2,.hero h1,.sec-head h2{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.2px}
+/* ruban national : rouge au-dessus, vert dessous, étoile centrale */
+.nav{border-bottom:0;position:sticky}
+.nav::after{content:"";display:block;height:6px;background:linear-gradient(to bottom,var(--bf-red) 0 3px,var(--bf-green) 3px 6px)}
+.nav{background:var(--bf-ink)}
+.menu a:hover,.menu a.on{background:var(--bf-red)}
+.tools select{background:var(--bf-green)}
+.brand b i{color:var(--bf-gold)}
+.hero{background:radial-gradient(1200px 520px at 85% -10%,rgba(0,158,73,.45),transparent 60%),radial-gradient(900px 480px at -10% 110%,rgba(239,43,45,.38),transparent 62%),linear-gradient(160deg,#07140d 0%,#0b1410 55%,#190b0b 100%)}
+.hero::before{content:"★";position:absolute;right:4%;top:50%;transform:translateY(-50%);font-size:min(46vw,420px);line-height:1;color:var(--bf-gold);opacity:.07;pointer-events:none}
+.hero .chev{background:repeating-linear-gradient(100deg,rgba(239,43,45,.10) 0,rgba(239,43,45,.10) 26px,transparent 26px,transparent 52px,rgba(0,158,73,.10) 52px,rgba(0,158,73,.10) 78px,transparent 78px,transparent 104px)}
+.hero h1 em{color:var(--bf-gold)}
+.rule{background:linear-gradient(90deg,var(--bf-red) 0 33%,var(--bf-gold) 33% 66%,var(--bf-green) 66%);height:4px;width:96px;border-radius:2px}
+.phero{background:radial-gradient(900px 400px at 90% 0,rgba(0,158,73,.4),transparent 60%),linear-gradient(160deg,#07140d,#0b1410 60%,#1a0a0a)}
+.btn{background:var(--bf-red)}.btn:hover{background:var(--red-dark)}
+.btn.gold{background:var(--bf-gold);color:#14171C}
+.sec-head .k{color:var(--bf-green)}
+.sec-head .k::before{content:"";display:inline-block;width:18px;height:3px;margin-right:8px;vertical-align:middle;background:linear-gradient(90deg,var(--bf-red) 0 50%,var(--bf-green) 50%)}
+.card{border-top:3px solid transparent;border-image:linear-gradient(90deg,var(--bf-red),var(--bf-gold),var(--bf-green)) 1;border-left:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 8px 28px rgba(11,20,16,.07)}
+.card.dark{background:linear-gradient(150deg,#0b1410,#12261b)}
+.pcard:hover{border-color:var(--bf-green)}
+.subnav a:hover,.subnav a.on{border-color:var(--bf-red);color:var(--bf-red)}
+th{background:var(--bf-ink)}
+footer{background:var(--bf-ink);position:relative;padding-top:18px}
+footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(to bottom,var(--bf-red) 0 3px,var(--bf-green) 3px 6px)}
+.badge.rsm{background:var(--bf-gold)}
+.progress{background:linear-gradient(90deg,var(--bf-red),var(--bf-gold),var(--bf-green))}
+
+/* barres d'adéquation */
+.fitbar{height:9px;background:#e8e4d6;border-radius:6px;overflow:hidden;min-width:70px;flex:1}
+.fitbar i{display:block;height:100%;background:linear-gradient(90deg,var(--bf-green),#7fd17a);border-radius:6px;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.fitbar.red i{background:linear-gradient(90deg,var(--bf-gold),var(--bf-red))}
+/* poste idéal */
+.rolecard .rolehead{display:grid;grid-template-columns:1fr auto;gap:2px 14px;align-items:end;margin-bottom:10px}
+.rolek{grid-column:1/-1;font-size:11px;letter-spacing:2px;font-weight:800;text-transform:uppercase;color:var(--bf-green)}
+.rolecard h3{font-family:Georgia,serif;font-size:24px;margin:0;line-height:1.15}
+.fitscore{text-align:right}.fitscore b{font-size:40px;font-weight:900;color:var(--bf-red);line-height:1}.fitscore small{color:var(--muted);font-weight:700}
+.syslab{margin:16px 0 6px;font-size:11px;letter-spacing:1.6px;font-weight:800;text-transform:uppercase;color:var(--muted)}
+.syschips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.syschip{background:var(--bf-ink);color:var(--bf-gold);border-radius:8px;padding:6px 14px;font-weight:900;font-size:16px;letter-spacing:1.5px;border-bottom:3px solid var(--bf-green)}
+.conf{margin-top:12px;font-size:12.5px;padding:8px 12px;border-radius:8px;border-left:4px solid}
+.conf.hi{background:#e8f6ee;border-color:var(--bf-green);color:#0a5a30}.conf.mid{background:#fff6dc;border-color:var(--bf-gold);color:#6b5200}.conf.lo{background:#fdecec;border-color:var(--bf-red);color:#8b1214}
+ul.why{margin:6px 0 0;padding-left:18px}ul.why li{margin:5px 0;font-size:14px}
+.altrole{display:grid;grid-template-columns:minmax(120px,1.4fr) 2fr 34px;gap:10px;align-items:center;margin:7px 0;font-size:13px}.altrole b{text-align:right}
+/* clubs preneurs */
+.needrow{display:grid;grid-template-columns:42px 1fr minmax(110px,220px);gap:14px;align-items:center;padding:12px 4px;border-top:1px solid var(--line);color:inherit;text-decoration:none}
+.needrow:first-child{border-top:0}.needrow:hover{background:#f3efe2}
+.needrow .crest{width:38px;height:38px}.needrow ul{margin:4px 0 0;padding-left:16px;font-size:12.5px;color:#4b5058}.needrow .nv{display:flex;gap:8px;align-items:center}.needrow .nv b{min-width:26px;text-align:right}
+/* page mon club */
+.bp-ctrl{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-end;margin:6px 0 20px;padding:16px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.bp-ctrl label{display:block;font-size:11px;letter-spacing:1.6px;font-weight:800;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.bp-ctrl select{font-size:15px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);min-width:240px;background:#fff}
+.bp-club{display:flex;gap:14px;align-items:center;margin:8px 0 16px}.crest.lg{width:56px;height:56px}
+.need{background:#fff;border:1px solid var(--line);border-left:5px solid var(--bf-red);border-radius:14px;padding:16px 18px;margin-bottom:16px;box-shadow:0 6px 20px rgba(11,20,16,.05)}
+.need header{display:grid;grid-template-columns:auto 1fr auto;gap:6px 12px;align-items:center}
+.need h3{margin:0;font-family:Georgia,serif;font-size:21px}.needn{font-size:11px;letter-spacing:1.6px;font-weight:900;color:var(--bf-red);text-transform:uppercase}
+.needbar{grid-column:1/-1;display:flex;gap:10px;align-items:center;font-size:12px;color:var(--muted)}.needbar b{color:var(--ink);min-width:26px}
+.candh{margin:14px 0 6px;font-size:11px;letter-spacing:1.6px;font-weight:800;text-transform:uppercase;color:var(--bf-green)}
+.cands{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px}
+.candrow{display:grid;grid-template-columns:44px 1fr 110px;gap:10px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:12px;color:inherit;text-decoration:none;background:#fcfbf6}
+.candrow:hover{border-color:var(--bf-green);box-shadow:0 4px 14px rgba(0,158,73,.15);transform:translateY(-1px)}
+.candrow .ph{width:44px;height:44px;font-size:14px}.candrow .ph img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.candrow .cn b{display:block;font-size:14px}.candrow .cn span{font-size:11.5px;color:var(--muted)}.candrow .cn em{font-style:normal;color:#8a6d00;font-weight:800}
+.candrow .crest{width:14px;height:14px;vertical-align:-2px}
+.candrow .cf{display:flex;gap:6px;align-items:center}.candrow .cf b{min-width:24px;text-align:right;font-size:13px}
+/* export */
+.exitem{background:#fff;border:1px solid var(--line);border-left:5px solid var(--bf-gold);border-radius:12px;padding:14px 16px}
+.exitem.warn{border-left-color:var(--bf-red)}.exitem.ok{border-left-color:var(--bf-green)}.exitem b{font-size:15px}.exitem p{margin:6px 0 0;font-size:13.5px;color:#3d424a}
+/* comparateur sobre */
+.vs-ko{display:none!important}
+.vs-intro{display:none!important}
+.genie-page h1,.vs-wrap h1{font-family:Georgia,serif}
+@media (max-width:640px){.needrow{grid-template-columns:36px 1fr}.needrow .nv{grid-column:1/-1}.cands{grid-template-columns:1fr}.candrow{grid-template-columns:44px 1fr 90px}}
+
+/* sobriété : comparateur et assistant aux couleurs du Burkina, sans effets de jeu */
+.vs-wrap,.genie-page{background:radial-gradient(900px 420px at 90% 0,rgba(0,158,73,.30),transparent 60%),radial-gradient(700px 380px at 0 100%,rgba(239,43,45,.22),transparent 62%),linear-gradient(160deg,#07140d,#0b1410 60%,#150a0a)}
+.vs-wrap h1{background:none;-webkit-text-fill-color:#fff;color:#fff;text-shadow:none;letter-spacing:.5px;font-size:clamp(28px,5vw,44px)}
+.vs-wrap h1::after{content:"";display:block;width:96px;height:4px;margin:12px auto 0;border-radius:2px;background:linear-gradient(90deg,var(--bf-red) 0 33%,var(--bf-gold) 33% 66%,var(--bf-green) 66%)}
+.vs-pick input{background:#0f1d16;border:1px solid #2a4a38;color:#fff}.vs-pick input:focus{border-color:var(--bf-gold)}
+.vs-banner .big{font-style:normal;letter-spacing:3px;text-shadow:none;color:var(--bf-gold);font-size:clamp(24px,5vw,38px)}
+.vs-row.win-l .hb.l i,.vs-row.win-r .hb.r i{background:linear-gradient(180deg,#5fd48f,var(--bf-green))}
+.genie-page::before{opacity:.18}
+.genie-page h1{font-family:Georgia,serif;text-shadow:none;color:#fff;font-size:clamp(26px,5vw,42px);letter-spacing:.3px}
+.genie-page h1::after{content:"";display:block;width:96px;height:4px;margin:12px auto 0;border-radius:2px;background:linear-gradient(90deg,var(--bf-red) 0 33%,var(--bf-gold) 33% 66%,var(--bf-green) 66%)}
+.genie-page .sub{color:#cfd8d2}
+#genie{filter:hue-rotate(-55deg) saturate(.8)}
+
+/* comparateur : grands portraits de visage façon « héros » */
+.vs-f{gap:0}
+.vs-ph{width:clamp(150px,24vw,250px);height:clamp(190px,31vw,320px);border-radius:18px;border:3px solid transparent;background:linear-gradient(135deg,var(--h1),var(--h2)) padding-box,linear-gradient(160deg,var(--bf-red),var(--bf-gold),var(--bf-green)) border-box;box-shadow:0 18px 44px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.06);font-size:clamp(44px,8vw,84px);position:relative}
+.vs-ph img{object-position:50% 6%;transform:scale(1.18);transform-origin:50% 10%}
+.vs-ph::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(to top,rgba(7,20,13,.85),transparent);pointer-events:none}
+.vs-nm{font-family:Georgia,serif;letter-spacing:.5px;margin-top:12px}
+.vs-vs{font-size:clamp(18px,3vw,28px);font-style:normal;color:var(--bf-gold);text-shadow:none;animation:none;letter-spacing:3px;opacity:.85}
+@media (max-width:760px){.vs-ph{width:120px;height:156px;font-size:38px}}
+
+/* sélecteur masculin / féminin */
+.sexe{display:flex;gap:2px;background:rgba(255,255,255,.08);border-radius:20px;padding:2px;margin-left:auto}
+.sexe a{color:#cfd8d2;text-decoration:none;font-size:12px;font-weight:800;padding:6px 12px;border-radius:18px;white-space:nowrap}
+.sexe a.on{background:var(--bf-gold);color:#14171C}
+.card.fem{max-width:760px;margin:20px auto;padding:30px}
+
+.zwarn{margin:10px 0 6px;padding:8px 12px;border-radius:8px;background:#fff6dc;border-left:4px solid var(--bf-gold);color:#6b5200;font-size:12.5px;line-height:1.45}
+
+/* comparateur : sélection guidée */
+.vs-side{display:flex;flex-direction:column;gap:8px}
+.vs-side select,.vs-side input{width:100%;padding:11px 12px;border-radius:10px;border:1px solid #2a4a38;background:#0f1d16;color:#fff;font-size:14px}
+.vs-side select:disabled{opacity:.6}
+.vs-side select:focus,.vs-side input:focus{outline:0;border-color:var(--bf-gold)}
+.vs-side option,.vs-side optgroup{background:#0f1d16;color:#fff}
+.vs-guided{max-width:980px}
+
+/* bouton WhatsApp : bien visible (logo officiel blanc sur vert, anneau blanc, pulsation douce) */
+.wa{width:64px;height:64px;right:20px;bottom:20px;background:#25D366;box-shadow:0 0 0 4px #fff,0 8px 24px rgba(0,0,0,.45);animation:waPulse 2.6s ease-out infinite}
+.wa:hover{background:#1ebe5b;transform:scale(1.06)}
+.wa svg{display:block}
+@keyframes waPulse{0%{box-shadow:0 0 0 4px #fff,0 0 0 4px rgba(37,211,102,.55),0 8px 24px rgba(0,0,0,.45)}70%{box-shadow:0 0 0 4px #fff,0 0 0 18px rgba(37,211,102,0),0 8px 24px rgba(0,0,0,.45)}100%{box-shadow:0 0 0 4px #fff,0 0 0 4px rgba(37,211,102,0),0 8px 24px rgba(0,0,0,.45)}}
+@media (prefers-reduced-motion:reduce){.wa{animation:none}}
+
+/* plateau tactique 3D */
+.tbbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+button.syschip{border:0;cursor:pointer;font-family:inherit;opacity:.7}
+button.syschip.on,button.syschip:hover{opacity:1;outline:2px solid var(--bf-gold)}
+.tbcv{width:100%;height:clamp(300px,52vw,470px);background:radial-gradient(ellipse at 50% 30%,#f4efe0,#e5ddc6);border-radius:14px;border:1px solid var(--line)}
