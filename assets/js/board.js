@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded',function(){
       else if(d.foot==='right'){var R=cands.filter(function(k){return/^R/.test(k)&&f.some(function(s){return s[0]===k})})[0];if(R&&/^(LB|LW|LM|LWB)$/.test(pick||''))pick=R}
       return pick||f[f.length-1][0]}
     function draw(sys){cur=sys;var me=slotFor(sys);
-      sc.set(FORM[sys].map(function(s){var on=s[0]===me;return{x:s[1],z:s[2],h:on?30:7,big:on,c:on?[252,209,22]:GRIS,label:on?d.name:'',lc:'#8f0c22',tag:on?'':''}}));
+      sc.set(FORM[sys].map(function(s){var on=s[0]===me;return{x:s[1],z:s[2],h:on?17:10,big:on,halo:on,c:on?[252,209,22]:GRIS,label:on?d.name:'',lc:'#fff'}}));
       Array.prototype.forEach.call(tb.querySelectorAll('[data-sys]'),function(b){b.classList.toggle('on',b.dataset.sys===sys)});
       $('#tb3dSlot',tb).textContent=tr('tb_slot',{slot:me})}
     Array.prototype.forEach.call(tb.querySelectorAll('[data-sys]'),function(b){b.addEventListener('click',function(){draw(b.dataset.sys)})});
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded',function(){
     function needOf(k){var an=(B.allneed||{})[club]||{},m=0;(ROLES_SLOT[k]||[]).forEach(function(r){m=Math.max(m,an[r]||0)});return m}
     function drawClub(){
       if(!club){sc2.set([]);$('#cbList').innerHTML='';return}
-      sc2.set(FORM[sys].map(function(s){var n=needOf(s[0]);return{x:s[1],z:s[2],k:s[0],h:6+n*.28,big:n>=60,c:needColor(n),label:n?String(n):'',lc:n>=60?'#8f0c22':'#14171C',n:n}}));
+      sc2.set(FORM[sys].map(function(s){var n=needOf(s[0]);return{x:s[1],z:s[2],k:s[0],h:10+n*.12,big:n>=60,halo:n>=60,c:needColor(n),num:n?String(n):'',n:n}}));
       Array.prototype.forEach.call(cb.querySelectorAll('[data-sys]'),function(b){b.classList.toggle('on',b.dataset.sys===sys)})}
     function pick(s){var g=GROUP(s.k),roles=ROLES_SLOT[s.k]||[],out=[];
       P.forEach(function(p){var r=B.roles[p[0]];if(!r||p[2]===club||p[3]!==g||(p[7]||0)<90)return;if(roles.indexOf(r[0])<0)return;if(p[4]!=null&&p[4]>maxAge)return;out.push([p,r[1]])});
