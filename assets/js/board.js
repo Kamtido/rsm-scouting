@@ -23,7 +23,7 @@ var SLOT_ROLE={fw_poacher:['ST','SS'],fw_target:['ST'],fw_mobile:['ST','SS'],fw_
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function mix(a,b,t){return[Math.round(a[0]+(b[0]-a[0])*t),Math.round(a[1]+(b[1]-a[1])*t),Math.round(a[2]+(b[2]-a[2])*t)]}
 var GRIS=[132,142,138],VERT=[0,158,73],OR=[252,209,22],ROUGE=[239,43,45];
-function needColor(n){return n<50?mix(VERT,OR,n/50):mix(OR,ROUGE,(n-50)/50)}
+function needColor(n){return n<50?mix(GRIS,[226,120,60],n/50):mix([226,120,60],ROUGE,(n-50)/50)}
 
 document.addEventListener('DOMContentLoaded',function(){
   /* ------- fiche joueur */
@@ -46,23 +46,30 @@ document.addEventListener('DOMContentLoaded',function(){
   var cb=$('#clubBoard');
   if(cb&&window.RSM3D){
     var P=window.PLAYERS||[],B=window.BESOINS||{roles:{},allneed:{}},by={};P.forEach(function(p){by[p[0]]=p});
-    var cv2=$('canvas',cb),sc2=window.RSM3D.board(cv2,pick),sys='4-3-3',club='',maxAge=99;
+    var cv2=$('canvas',cb),sc2=window.RSM3D.board(cv2,pick),sys='4-3-3',club='',maxAge=99,selSlot='';
     function needOf(k){var an=(B.allneed||{})[club]||{},m=0;(ROLES_SLOT[k]||[]).forEach(function(r){m=Math.max(m,an[r]||0)});return m}
     function drawClub(){
       if(!club){sc2.set([]);$('#cbList').innerHTML='';return}
-      sc2.set(FORM[sys].map(function(s){var n=needOf(s[0]);return{x:s[1],z:s[2],k:s[0],h:10+n*.12,big:n>=60,halo:n>=60,c:needColor(n),num:n?String(n):'',n:n}}));
+      sc2.set(FORM[sys].map(function(s){var n=needOf(s[0]);var on=s[0]===selSlot;return{x:s[1],z:s[2],k:s[0],h:on?Math.max(20,10+n*.12):10+n*.12,big:on||n>=60,halo:on||n>=60,c:on?OR:needColor(n),num:n?String(n):'',n:n}}));
       Array.prototype.forEach.call(cb.querySelectorAll('[data-sys]'),function(b){b.classList.toggle('on',b.dataset.sys===sys)})}
-    function pick(s){var g=GROUP(s.k),roles=ROLES_SLOT[s.k]||[],out=[];
+    function pick(s){selSlot=s.k;drawClub();var g=GROUP(s.k),roles=ROLES_SLOT[s.k]||[],out=[];
       P.forEach(function(p){var r=B.roles[p[0]];if(!r||p[2]===club||p[3]!==g||(p[7]||0)<90)return;if(roles.indexOf(r[0])<0)return;if(p[4]!=null&&p[4]>maxAge)return;out.push([p,r[1]])});
       out.sort(function(a,b){return b[1]-a[1]});
       $('#cbList').innerHTML='<h3 style="margin:14px 0 8px">'+tr('ro_'+roles[0])+(roles[1]?' / '+tr('ro_'+roles[1]):'')+' · '+tr('bp_need')+' '+s.n+'</h3>'+(out.length?'<div class="cands">'+out.slice(0,8).map(function(x){var p=x[0];
         return'<a class="candrow" href="joueur/'+p[0]+'.html"><div class="ph" style="--h1:hsl(150,40%,30%);--h2:hsl(170,50%,16%)">'+esc((p[1].split(' ')[0]||'')[0]+(p[1].split(' ').pop()||'')[0])+'</div><div class="cn"><b>'+esc(p[1])+'</b><span>'+(p[4]!=null?tr('f_age_n',{n:p[4]}):'')+(p[7]?' · '+p[7]+'′':'')+'</span></div><div class="cf"><div class="fitbar"><i style="width:'+Math.max(4,x[1])+'%"></i></div><b>'+x[1]+'</b></div></a>'}).join('')+'</div>':'<div class="muted small">'+tr('bp_none')+'</div>')}
-    Array.prototype.forEach.call(cb.querySelectorAll('[data-sys]'),function(b){b.addEventListener('click',function(){sys=b.dataset.sys;drawClub()})});
+    Array.prototype.forEach.call(cb.querySelectorAll('[data-sys]'),function(b){b.addEventListener('click',function(){sys=b.dataset.sys;selSlot='';$('#cbList').innerHTML='';drawClub()})});
     var sel=document.getElementById('bpClub');
-    function sync(){club=sel?sel.value:'';drawClub();$('#cbList').innerHTML=''}
+    function sync(){club=sel?sel.value:'';selSlot='';drawClub();$('#cbList').innerHTML=''}
     if(sel)sel.addEventListener('change',sync);
     Array.prototype.forEach.call(document.querySelectorAll('#bpAge button'),function(b){b.addEventListener('click',function(){maxAge=+b.dataset.a})});
     setTimeout(sync,50);
   }
 });
+})();
+
+(function(){
+var b=document.getElementById('toTop');if(!b)return;
+function upd(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>400)}
+window.addEventListener('scroll',upd,{passive:true});upd();
+b.addEventListener('click',function(){var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;window.scrollTo({top:0,behavior:rm?'auto':'smooth'})});
 })();
