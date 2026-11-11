@@ -1,0 +1,2 @@
+
+- `[11/11/2026] Claude` : J8 intégrée — `construire_fiches.py` (+ tags REAL-VIT, CFFEB-USC, USFA-ASB, DATE 11/11), pack régénéré (561 joueurs, 63 matchs), classements ligue re-scrapés (`gsa_leaders.py`), `site_pro` + zip régénérés (`generer_site_pro.py`). Liens Match Tracker + Odysee J8 présents sur les fiches. Les feuilles J8 sont encore à composition provisoire (titulaires/banc à confirmer à la publication officielle).
