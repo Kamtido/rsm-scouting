@@ -1,4 +1,4 @@
-# RSM Scouting — site statique (généré le 2026-11-11)
+# RSM Scouting — site statique (généré le 2026-11-12)
 
 Mettre en ligne : envoyer **tout le contenu** de ce dossier (ou le zip `RSM_SCOUTING/rsm_scouting_site.zip` décompressé) à la racine de l'hébergement du site RSM Scouting. Aucun serveur, aucune base : HTML + CSS + JS.
 Aperçu local : `python -m http.server 8767` depuis ce dossier, puis http://127.0.0.1:8767/
